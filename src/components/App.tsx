@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import Navbar from './Navbar/Navbar';
 import './App.css';
 import { read } from 'fs';
@@ -17,15 +16,16 @@ const App = () => {
     const data = (await result.json()) as User[];
     setUser(data);
   };
+
   React.useEffect(() => {
     if (text === "Load Users") {
       getUsers();
     }
-  }, [text]);
+  }, []);
+
   return (
     <>
-      <Navbar
-        items={[
+      <Navbar items={[
           { text: "Home", action: () => setText("Home") },
           {
             text: "Load Users",
@@ -37,24 +37,28 @@ const App = () => {
         <h1>{text}</h1>
       </div>
 
-      <h2>user info</h2>
+      <h2>User information:</h2>
 
       <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
         {user && user?.length > 0 && (
           <div
             style={{
-              padding: 20,
+              background: 'cyan',
+              flexDirection: "column",
               display: "flex",
               flex: 1,
-              flexDirection: "column",
-            }}
-          >
-            {user.map((elem) => (
-              <div key={elem.name}>
-                <span>name: {elem.name}</span>
-                <span>email: {elem.email}</span>
-              </div>
-            ))}
+              margin: 20,
+              paddingLeft: 20,
+              borderRadius: 20
+            }}>
+            {
+            user.map((elem) => (
+              <>
+                <span>Email: {elem.email}</span>
+                <span>Name: {elem.name}</span>
+              </>
+            ))
+            }
           </div>
         )}
       </div>
