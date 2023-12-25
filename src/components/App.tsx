@@ -53,10 +53,10 @@ const App = () => {
             }}>
             {
             user.map((elem) => (
-              <>
-                <span>Email: {elem.email}</span>
-                <span>Name: {elem.name}</span>
-              </>
+              <div key={elem.name} style={{marginBottom: 20}}>
+                <li>Email: {elem.email}</li>
+                <li>Name: {elem.name}</li>
+              </div>
             ))
             }
           </div>
