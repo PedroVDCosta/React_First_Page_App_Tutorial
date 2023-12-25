@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar/Navbar';
+import Navbar from './Navbar/Navbar.tsx';
 import './App.css';
 import { read } from 'fs';
 
@@ -37,7 +37,7 @@ const App = () => {
         <h1>{text}</h1>
       </div>
 
-      <h2>User information:</h2>
+      <h2>Users information:</h2>
 
       <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
         {user && user?.length > 0 && (
