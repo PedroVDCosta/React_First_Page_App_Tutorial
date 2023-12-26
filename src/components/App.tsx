@@ -26,7 +26,6 @@ const App = () => {
   return (
     <>
       <Navbar items={[
-          { text: "Home", action: () => setText("Home") },
           {
             text: "Load Users",
             action: () => (setText("Load Users"), getUsers()),
